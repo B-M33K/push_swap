@@ -8,9 +8,10 @@ HEADER = push_swap.h
 
 NAME = push_swap
 
-SRC = 	ft_stack.c\
+SRC = 	ft_stack.c \
+		ft_print_stack.c \
+		ft_instructions.c \
 		push_swap.c \
-		ft_operations.c 
 
 OBJ = $(SRC:.c=.o)
 

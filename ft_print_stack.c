@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_print_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obahi <obahi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/23 08:49:27 by obahi             #+#    #+#             */
-/*   Updated: 2023/03/23 10:34:05 by obahi            ###   ########.fr       */
+/*   Created: 2023/03/23 09:13:29 by obahi             #+#    #+#             */
+/*   Updated: 2023/03/23 09:31:36 by obahi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include"push_swap.h"
 
-int	main(int argc, char **argv)
+void	ft_print_stack(t_stack s)
 {
-	t_stack	a;
-	t_stack	b;
-	int		i;
+	int	i;
 
-	i = -1;
-	a = ft_stack(argc - 1, 'a');
-	b = ft_stack(argc - 1, 'b');
-	while (++i < argc - 1)
+	i = 0;
+	while(i < s.n)
 	{
-		a.t[i] = ft_atoi(*(argv + 1 + i));
-		a.n++;
+		ft_putnbr_fd(s.t[i], 1);
+		ft_putchar_fd('\n', 1);
+		i++;
 	}
-	ft_print_stack(a);
-	ft_print_stack(b);
-	ft_push(&a, &b);
-	ft_push(&a, &b);
-	ft_swap(&b);
-	ft_swap_2(&a,&b);
-	ft_push(&b, &a);
-	ft_print_stack(a);
-	ft_print_stack(b);
-	return (0);
+	write(1, "-", 1);
+	write(1, "\n", 1);
+	write(1, &s.c, 1);
+	write(1, "\n", 1);
 }

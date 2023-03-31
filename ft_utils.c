@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack.c                                         :+:      :+:    :+:   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obahi <obahi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/23 08:39:14 by obahi             #+#    #+#             */
-/*   Updated: 2023/03/23 10:00:00 by obahi            ###   ########.fr       */
+/*   Created: 2023/03/24 07:20:10 by obahi             #+#    #+#             */
+/*   Updated: 2023/03/24 07:22:47 by obahi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include"push_swap.h"
 
-t_stack	ft_stack(int n, char c)
+int	ft_min(t_stack s)
 {
-	t_stack	stack;
+	int	min;
+	int	i;
 
-	stack.n = 0;
-	stack.c = c;
-	stack.t = malloc(n * sizeof(int));
-	return(stack);
+	min = 0;
+	i = 0;
+	while (++i < s.n)
+		if (s.t[i] < s.t[min])
+			min = i;
+	return (min);
 }
