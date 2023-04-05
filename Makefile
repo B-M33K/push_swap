@@ -11,6 +11,8 @@ NAME = push_swap
 SRC = 	ft_stack.c \
 		ft_print_stack.c \
 		ft_instructions.c \
+		ft_utils.c \
+		ft_ulils2.c \
 		push_swap.c \
 
 OBJ = $(SRC:.c=.o)

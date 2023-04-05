@@ -6,7 +6,7 @@
 /*   By: obahi <obahi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 08:49:27 by obahi             #+#    #+#             */
-/*   Updated: 2023/03/23 10:34:05 by obahi            ###   ########.fr       */
+/*   Updated: 2023/04/05 22:36:15 by obahi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,8 @@ int	main(int argc, char **argv)
 	}
 	ft_print_stack(a);
 	ft_print_stack(b);
-	ft_push(&a, &b);
-	ft_push(&a, &b);
-	ft_swap(&b);
-	ft_swap_2(&a,&b);
-	ft_push(&b, &a);
+	printf("##########\n");
+	ft_sort_3(&a);
 	ft_print_stack(a);
-	ft_print_stack(b);
 	return (0);
 }
