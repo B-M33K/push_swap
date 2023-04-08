@@ -6,7 +6,7 @@
 /*   By: obahi <obahi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:17:37 by obahi             #+#    #+#             */
-/*   Updated: 2023/04/05 22:34:44 by obahi            ###   ########.fr       */
+/*   Updated: 2023/04/07 23:37:31 by obahi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,7 @@ int		ft_nb_moves(t_moves m);
 t_moves	ft_moves(t_stack a, t_stack b, int i);
 void	ft_move_it(t_stack *a, t_stack *b, t_moves m);
 void	ft_sort_3(t_stack *a);
-
+void ft_print_moves(t_moves m);
+t_moves	ft_best_move(t_stack a, t_stack b);
+void	ft_print_array(int *t, int n);
 #endif

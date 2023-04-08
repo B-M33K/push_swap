@@ -2,7 +2,7 @@ CC = cc
 
 MAKE = make
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 HEADER = push_swap.h
 
@@ -14,6 +14,7 @@ SRC = 	ft_stack.c \
 		ft_utils.c \
 		ft_ulils2.c \
 		push_swap.c \
+		# test.c \
 
 OBJ = $(SRC:.c=.o)
 

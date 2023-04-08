@@ -6,7 +6,7 @@
 /*   By: obahi <obahi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 09:21:33 by obahi             #+#    #+#             */
-/*   Updated: 2023/03/23 10:31:48 by obahi            ###   ########.fr       */
+/*   Updated: 2023/04/08 00:10:45 by obahi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,11 +112,13 @@ void	ft_rrotate_2(t_stack *s1, t_stack *s2)
 	tmp = s1->t[i-1];
 	while (--i > 0)
 		s1->t[i] = s1->t[i-1];
+	s1->t[i] = tmp;
 	i = s2->n;
 	tmp = s2->t[i-1];
 	while (--i > 0)
 		s2->t[i] = s2->t[i-1];
-	write(1, "rrr", 2);	
+	s2->t[i] = tmp;
+	write(1, "rrr\n", 4);
 }
 
 void	ft_push(t_stack *src, t_stack *dst)
