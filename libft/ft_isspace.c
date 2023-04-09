@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_stack.c                                   :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obahi <obahi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/23 09:13:29 by obahi             #+#    #+#             */
-/*   Updated: 2023/03/23 09:31:36 by obahi            ###   ########.fr       */
+/*   Created: 2023/04/08 23:34:14 by obahi             #+#    #+#             */
+/*   Updated: 2023/04/08 23:37:42 by obahi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"push_swap.h"
+#include "libft.h"
 
-void	ft_print_stack(t_stack s)
+int	ft_isspace(int c)
 {
-	int	i;
-
-	i = 0;
-	while(i < s.n)
-	{
-		ft_putnbr_fd(s.t[i], 1);
-		ft_putchar_fd('\n', 1);
-		i++;
-	}
-	write(1, "-", 1);
-	write(1, "\n", 1);
-	write(1, &s.c, 1);
-	write(1, "\n", 1);
+	return (c == 32 || (c >= 9 && c <= 13));
 }

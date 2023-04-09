@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_isblanc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obahi <obahi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/08 09:40:30 by obahi             #+#    #+#             */
-/*   Updated: 2023/04/09 10:36:17 by obahi            ###   ########.fr       */
+/*   Created: 2023/04/08 23:31:42 by obahi             #+#    #+#             */
+/*   Updated: 2023/04/08 23:39:41 by obahi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_isblanc(char const *s)
 {
-	t_stack	a;
-	t_stack	b;
-
-	if (argc == 1)
-		return (0);
-	if (!ft_fill_stacks(argv, &a, &b) || !ft_duplicated(a))
+	while (*s)
 	{
-		write(2, "ERROR\n", 6);
-		exit(1);
+		if (!ft_isspace(*s))
+			return (0);
+		s++;
 	}
-	if (ft_sorted(a))
-		return (0);
-	ft_move_elements_to_b(&a, &b);
-	ft_move_elements_back_to_a(&a, &b);
-	free(a.t);
-	free(b.t);
-	return (0);
+	return (1);
 }

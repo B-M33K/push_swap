@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ulils2.c                                        :+:      :+:    :+:   */
+/*   ft_utils4.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obahi <obahi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/01 17:40:18 by obahi             #+#    #+#             */
-/*   Updated: 2023/04/08 00:01:13 by obahi            ###   ########.fr       */
+/*   Created: 2023/04/08 09:43:57 by obahi             #+#    #+#             */
+/*   Updated: 2023/04/09 08:29:20 by obahi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,18 @@
 
 void	ft_sort_3(t_stack *a)
 {
-	if (a->t[0] > a->t[1] && a->t[0] < a->t[2])
-		return (ft_swap(a));
-	if (a->t[0] > a->t[1] && a->t[1] > a->t[2])
-		return (ft_swap(a), ft_rrotate(a));
-	if (a->t[0] > a->t[1] && a->t[1] < a->t[2])
-		return (ft_rotate(a));
-	if (a->t[0] < a->t[1] && a->t[0] < a->t[2])
-		return (ft_swap(a), ft_rotate(a));
-	if (a->t[0] < a->t[1] && a->t[0] > a->t[2])
-		return (ft_rrotate(a));
+	if (a->t[1] < a->t[0] && a->t[0] < a->t[2])
+		return (ft_swap(a, 1));
+	if (a->t[2] < a->t[1] && a->t[1] < a->t[0])
+		return (ft_swap(a, 1), ft_rrotate(a, 1));
+	if (a->t[1] < a->t[2] && a->t[2] < a->t[0])
+		return (ft_rotate(a, 1));
+	if (a->t[0] < a->t[2] && a->t[2] < a->t[1])
+		return (ft_swap(a, 1), ft_rotate(a, 1));
+	if (a->t[2] < a->t[0] && a->t[0] < a->t[1])
+		return (ft_rrotate(a, 1));
 }
 
-void ft_print_moves(t_moves m)
-{
-	printf("MOVES\n");
-	printf("ra == %d\n",m.ra);
-	printf("rb == %d\n",m.rb);
-	printf("rr == %d\n",m.rr);
-	printf("rra == %d\n",m.rra);
-	printf("rrb == %d\n",m.rrb);
-	printf("rrr == %d\n",m.rrr);
-}
 int	ft_nb_moves(t_moves m)
 {
 	m.rr = min(m.ra, m.rb);
@@ -49,7 +39,7 @@ int	ft_nb_moves(t_moves m)
 
 t_moves	ft_moves(t_stack a, t_stack b, int i)
 {
-	t_moves m;
+	t_moves	m;
 	int		j;
 
 	m.ra = 0;
@@ -67,43 +57,36 @@ t_moves	ft_moves(t_stack a, t_stack b, int i)
 		m.ra = j;
 	else
 		m.rra = a.n - j;
-	return m;
+	return (m);
 }
 
 void	ft_move_it(t_stack *a, t_stack *b, t_moves m)
 {
-	int	i;
 	m.rr = min(m.ra, m.rb);
 	m.rrr = min(m.rra, m.rrb);
 	m.ra -= m.rr;
 	m.rb -= m.rr;
 	m.rra -= m.rrr;
 	m.rrb -= m.rrr;
-	i = -1;
-	while (++i < m.ra)
-		ft_rotate(a);
-	i = -1;
-	while (++i < m.rb)
-		ft_rotate(b);
-	i = -1;
-	while (++i < m.rr)
-		ft_rotate_2(a, b);
-	i = -1;
-	while (++i < m.rra)
-		ft_rrotate(a);
-	i = -1;
-	while (++i < m.rrb)
-		ft_rrotate(b);
-	i = -1;
-	while (++i < m.rrr)
-		ft_rrotate_2(a, b);
-	ft_push(b, a);
+	while (m.ra--)
+		ft_rotate(a, 1);
+	while (m.rb--)
+		ft_rotate(b, 1);
+	while (m.rr--)
+		ft_rotate_2(a, b, 1);
+	while (m.rra--)
+		ft_rrotate(a, 1);
+	while (m.rrb--)
+		ft_rrotate(b, 1);
+	while (m.rrr--)
+		ft_rrotate_2(a, b, 1);
+	ft_push(b, a, 1);
 }
 
 t_moves	ft_best_move(t_stack a, t_stack b)
 {
-	t_moves m;
-	t_moves m1;
+	t_moves	m;
+	t_moves	m1;
 	int		k;
 	int		k1;
 	int		i;
@@ -123,14 +106,4 @@ t_moves	ft_best_move(t_stack a, t_stack b)
 		i++;
 	}
 	return (m);
-}
-
-void	ft_print_array(int *t, int n)
-{
-	int i = 0;
-	while (i < n)
-	{
-		printf("t[%d] == %d\n",i, t[i]);
-		i++;
-	}
 }
