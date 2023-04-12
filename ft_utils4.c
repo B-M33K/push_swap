@@ -6,7 +6,7 @@
 /*   By: obahi <obahi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 09:43:57 by obahi             #+#    #+#             */
-/*   Updated: 2023/04/09 08:29:20 by obahi            ###   ########.fr       */
+/*   Updated: 2023/04/12 00:19:12 by obahi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	ft_sort_3(t_stack *a)
 
 int	ft_nb_moves(t_moves m)
 {
-	m.rr = min(m.ra, m.rb);
-	m.rrr = min(m.rra, m.rrb);
+	m.rr = MIN(m.ra, m.rb);
+	m.rrr = MIN(m.rra, m.rrb);
 	m.ra -= m.rr;
 	m.rb -= m.rr;
 	m.rra -= m.rrr;
@@ -62,8 +62,8 @@ t_moves	ft_moves(t_stack a, t_stack b, int i)
 
 void	ft_move_it(t_stack *a, t_stack *b, t_moves m)
 {
-	m.rr = min(m.ra, m.rb);
-	m.rrr = min(m.rra, m.rrb);
+	m.rr = MIN(m.ra, m.rb);
+	m.rrr = MIN(m.rra, m.rrb);
 	m.ra -= m.rr;
 	m.rb -= m.rr;
 	m.rra -= m.rrr;

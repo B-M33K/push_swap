@@ -6,7 +6,7 @@
 /*   By: obahi <obahi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 09:47:31 by obahi             #+#    #+#             */
-/*   Updated: 2023/04/09 12:42:58 by obahi            ###   ########.fr       */
+/*   Updated: 2023/04/10 23:17:55 by obahi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,20 +66,7 @@ int	ft_valid_arg(char *ar)
 			return (0);
 		i++;
 	}
-	i = 0;
-	if (*(ar + i) == '-')
-		if (ft_strlen(ar + i + 1) >= 10
-			&& ft_strcmp(ar + i + 1, "2147483648") > 0)
-			return (0);
-	if (*(ar + i) == '+')
-		i++;
-	if (ft_strlen(ar + i) >= 10 && ft_strcmp(ar + i, "2147483647") > 0)
-		return (0);
-	if (ft_strlen(ar + i) > 10)
-	{
-		return (0);
-	}
-	return (1);
+	return (ft_int_capacity(ar));
 }
 
 int	ft_sorted(t_stack s)

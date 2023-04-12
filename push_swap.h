@@ -6,7 +6,7 @@
 /*   By: obahi <obahi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 09:39:27 by obahi             #+#    #+#             */
-/*   Updated: 2023/04/09 10:59:08 by obahi            ###   ########.fr       */
+/*   Updated: 2023/04/10 23:19:28 by obahi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include "libft/libft.h"
+# define MIN(a ,b) ((a < b) ? a : b)
 
 typedef struct s_stack
 {
@@ -44,8 +45,7 @@ void	ft_rotate_2(t_stack *s1, t_stack *s2, int p);
 void	ft_rrotate_2(t_stack *s1, t_stack *s2, int p);
 int		ft_min(t_stack s);
 int		ft_max(t_stack s);
-int		min(int a, int b);
-int		max(int a, int b);
+int		ft_int_capacity(char *str);
 int		ft_index(t_stack a, t_stack b, int i);
 void	ft_sort_3(t_stack *a);
 int		ft_nb_moves(t_moves m);
